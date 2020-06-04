@@ -30,13 +30,8 @@ setup(
     version="0.0.1",
     packages=find_packages(),
     install_requires=required,
-    author="Fabien MARTY, Florian POURTUGAU",
-    author_email="fabien.marty@gmail.com, florian.pourtugau@hotmail.fr",
-    url="https://github.com/metwork-framework/directory_observer",
-    license='BSD 3',
+    dependency_links=dependency_links,
     zip_safe=False,
-    download_url='https://github.com/metwork-framework/directory_observer',
-    description=DESCRIPTION,
     entry_points={
         "console_scripts": [
             "directory_observer = directory_observer.directory_observer:main",
