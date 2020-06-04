@@ -37,7 +37,6 @@ setup(
     zip_safe=False,
     download_url='https://github.com/metwork-framework/directory_observer',
     description=DESCRIPTION,
-    install_requires=install_requires,
     entry_points={
         "console_scripts": [
             "directory_observer = directory_observer.directory_observer:main",
