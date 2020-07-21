@@ -13,6 +13,8 @@
 
 [//]: # (TABLE_OF_CONTENTS_PLACEHOLDER)
 
+
+
 # What is it ?
 
 `directory_observer` is a tool that allows you to monitor activity on various directories and push the corresponding events to a Redis queue (a list). For example, you may create a file inside one of your monitored directories, the creation event will be pushed to the Redis queue.
