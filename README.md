@@ -1,17 +1,14 @@
 # directory_observer
 
-[//]: # (automatically generated from https://github.com/metwork-framework/resources/blob/master/cookiecutter/_%7B%7Bcookiecutter.repo%7D%7D/README.md)
+[//]: # (automatically generated from https://github.com/metwork-framework/github_organization_management/blob/master/common_files/README.md)
 
 **Status (master branch)**
-
 
 
 
 [![GitHub CI](https://github.com/metwork-framework/directory_observer/workflows/CI/badge.svg?branch=master)](https://github.com/metwork-framework/directory_observer/actions?query=workflow%3ACI&branch=master)
 [![Maintenance](https://github.com/metwork-framework/resources/blob/master/badges/maintained.svg)]()
 
-
-[//]: # (TABLE_OF_CONTENTS_PLACEHOLDER)
 
 
 
@@ -167,11 +164,6 @@ Concerning the values that are pushed to these queues, they are pushed as JSON f
 ### Opearations on the monitored directory themselves
 
 If you decide to rename, move or delete a monitored directory, the monitoring on the concerned directory will actually stop. Because `directory_observer` was told to monitor a specific path (to the monitored directory), if the path changes and is not valid anymore (if the directory is moved, renamed or deleted), `directory_observer` will stop monitoring this directory.
-
-
-
-
-
 
 
 
