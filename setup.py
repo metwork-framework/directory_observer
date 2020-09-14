@@ -28,6 +28,7 @@ DESCRIPTION = ("directory_observer is a tool that allows you to monitor activity
 setup(
     name='directory_observer',
     version="0.0.1",
+    url="https://github.com/metwork-framework/directory_observer",
     packages=find_packages(),
     install_requires=required,
     dependency_links=dependency_links,
