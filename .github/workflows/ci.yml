@@ -38,11 +38,11 @@ jobs:
 #     run: |
 #       make test
     - name: Doc
-      if: ${{ matrix.python-version == 3.7 }}
+      if: ${{ matrix.python-version == 3.8 }}
       run: |
         make doc
     - name: Publish doc
-      if: ${{ matrix.python-version == 3.7 }}
+      if: ${{ matrix.python-version == 3.8 }}
       uses: thebaptiste/ssh-scp-ssh-pipelines@metwork
       env:
         LOCAL: html/directory_observer
@@ -58,11 +58,11 @@ jobs:
         scp: |
          '${LOCAL}/*' => ${REMOTE}
     - name: Coverage
-      if: ${{ matrix.python-version == 3.7 }}
+      if: ${{ matrix.python-version == 3.8 }}
       run: |
         make coverage
     - name: Publish coverage
-      if: ${{ matrix.python-version == 3.7 }}
+      if: ${{ matrix.python-version == 3.8 }}
       uses: thebaptiste/ssh-scp-ssh-pipelines@metwork
       env:
         LOCAL: htmlcov
