@@ -54,7 +54,7 @@ jobs:
         port: 22
         first_ssh: |
           rm -Rf ${REMOTE}
-          mkdir ${REMOTE}
+          mkdir -p ${REMOTE}
         scp: |
          '${LOCAL}/*' => ${REMOTE}
     - name: Coverage
@@ -74,6 +74,6 @@ jobs:
         port: 22
         first_ssh: |
           rm -Rf ${REMOTE}
-          mkdir ${REMOTE}
+          mkdir -p ${REMOTE}
         scp: |
          '${LOCAL}/*' => ${REMOTE}
