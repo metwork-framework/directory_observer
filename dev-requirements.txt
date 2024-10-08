@@ -1,5 +1,6 @@
 -r requirements.txt
 flake8
+setuptools; python_version > '3.11'
 #mock
 #pdoc3
 #pytest
