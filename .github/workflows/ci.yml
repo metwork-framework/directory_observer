@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8]
+        python-version: [3.7, 3.8, 3.9, 3.10, 3.11, 3.12]
     name: Python ${{ matrix.python-version }}
 
     steps:
@@ -40,44 +40,39 @@ jobs:
 #     if: ${{ matrix.python-version == 3.7 }}
 #     run: |
 #       make doc
-#   - name: Publish doc 1
+#   - name: Publish doc
 #     if: ${{ matrix.python-version == 3.7 }}
-#     uses: appleboy/ssh-action@master
+#     uses: thebaptiste/ssh-scp-ssh-pipelines@metwork
+#     env:
+#       LOCAL: html/directory_observer
+#       REMOTE: doc
 #     with:
 #       host: ${{ secrets.PUB_HOST }}
-#       username: ${{ secrets.PUB_USERNAME }}
-#       password: ${{ secrets.PUB_PASSWORD }}
+#       user: ${{ secrets.PUB_USERNAME }}
+#       pass: ${{ secrets.PUB_PASSWORD }}
 #       port: 22
-#       script: |
-#         rm -Rf doc
-#         mkdir doc
-#   - name: Publish doc 2
-#     if: ${{ matrix.python-version == 3.7 }}
-#     uses: garygrossgarten/github-action-scp@release
-#     with:
-#       local: html/directory_observer
-#       remote: doc
-#       host: ${{ secrets.PUB_HOST }}
-#       username: ${{ secrets.PUB_USERNAME }}
-#       password: ${{ secrets.PUB_PASSWORD }}
+#       first_ssh: |
+#         rm -Rf ${REMOTE}
+#         mkdir ${REMOTE}
+#       scp: |
+#        '${LOCAL}/*' => ${REMOTE}
 #   - name: Coverage
+#     if: ${{ matrix.python-version == 3.7 }}
 #     run: |
 #       make coverage
-#   - name: Publish coverage 1
-#     uses: appleboy/ssh-action@master
+#   - name: Publish coverage
+#     if: ${{ matrix.python-version == 3.7 }}
+#     uses: thebaptiste/ssh-scp-ssh-pipelines@metwork
+#     env:
+#       LOCAL: htmlcov
+#       REMOTE: coverage
 #     with:
 #       host: ${{ secrets.PUB_HOST }}
-#       username: ${{ secrets.PUB_USERNAME }}
-#       password: ${{ secrets.PUB_PASSWORD }}
+#       user: ${{ secrets.PUB_USERNAME }}
+#       pass: ${{ secrets.PUB_PASSWORD }}
 #       port: 22
-#       script: |
-#         rm -Rf coverage
-#         mkdir coverage
-#   - name: Publish coverage 2
-#     uses: garygrossgarten/github-action-scp@release
-#     with:
-#       local: htmlcov
-#       remote: coverage
-#       host: ${{ secrets.PUB_HOST }}
-#       username: ${{ secrets.PUB_USERNAME }}
-#       password: ${{ secrets.PUB_PASSWORD }}
+#       first_ssh: |
+#         rm -Rf ${REMOTE}
+#         mkdir ${REMOTE}
+#       scp: |
+#        '${LOCAL}/*' => ${REMOTE}
