@@ -22,8 +22,9 @@ with open('requirements.txt') as reqs:
         else:
             required.append(line)
 
-DESCRIPTION = ("directory_observer is a tool that allows you to monitor activity on "
-               "various directories and push the corresponding events to a Redis queue")
+DESCRIPTION = ("directory_observer is a tool that allows you to monitor "
+               "activity on various directories and push the corresponding "
+               "events to a Redis queue")
 
 setup(
     name='directory_observer',
