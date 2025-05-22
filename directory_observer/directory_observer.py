@@ -321,7 +321,7 @@ class Monitor(pyinotify.ProcessEvent):
 # @return: True -> Success, False -> Failure.
 #
 def init():
-    global monitors, inactivityTimeout, logger
+    global monitors, inactivityTimeout
 
     if monitors:
         # Init already performed
@@ -635,7 +635,7 @@ def onIdle():
 # of the directories of the monitors
 # @return: instance of Notifier.
 def startMonitoring():
-    global monitors, dtLastEvent
+    global dtLastEvent
 
     msg = 'Start Monitoring.'
     if inactivityTimeout > 0:
@@ -701,8 +701,6 @@ def startMonitoring():
 # @param notifier: instance of notifier to stop
 #
 def stopMonitoring(notifier):
-    global monitors
-
     for mon in monitors:
         if mon.wd >= 0:
             mon.stopWatch()
@@ -734,7 +732,7 @@ def stopMonitoring(notifier):
 
 
 def eventPendingTest(notifier):
-    global dtLastEvent, stopRequest
+    global dtLastEvent
 
     try:
         reset = False
